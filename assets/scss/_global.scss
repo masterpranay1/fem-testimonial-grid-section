@@ -1,0 +1,29 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 13px;
+
+  background: $clr-primary-1;
+}
+
+.flex {
+    display: flex;
+    &-jc-c {
+        justify-content: center;
+    }
+    &-ai-c {
+        align-items: center;
+    }
+}
