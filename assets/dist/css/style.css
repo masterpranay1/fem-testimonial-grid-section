@@ -213,9 +213,9 @@ body {
     -ms-grid-rows: auto;
         grid-template-rows: auto;
         grid-template-areas: "card-1" "card-2" "card-3" "card-4" "card-5";
-    --sz-med: 1.5em;
-    --sz-sm: 1em;
-    --sz-x-sm: 0.875em;
+    --sz-med: 2em;
+    --sz-sm: 1.5em;
+    --sz-x-sm: 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */
