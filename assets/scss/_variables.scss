@@ -24,12 +24,12 @@ $clr-text-x-light : rgba(255 , 255 , 255, 0.7);
 $font-family : 'Barlow Semi Condensed', sans-serif;
 
 // font sizes
-$sz-med : 1.25em;
-$sz-sm : 0.8125em;
-$sz-x-sm : 0.7em;
-
-@include breakpoint-down(small) {
-    $sz-med : 1.5em;
-    $sz-sm : 1em;
-    $sz-x-sm : 0.875em;
+:root {
+    --sz-med : 1.25em;
+    --sz-sm : 0.8125em;
+    --sz-x-sm : 0.7em;
 }
+$sz-med : var(--sz-med);
+$sz-sm : var(--sz-sm);
+$sz-x-sm : var(--sz-x-sm);
+
