@@ -1,30 +1,83 @@
 .container {
   width: 70em;
   height: 36em;
+
   display: grid;
   grid-template-columns: repeat(4, 17.77fr);
   grid-template-rows: 31.33fr 29.55fr;
-  grid-gap: 2em;
+  grid-gap: 1.25em;
   grid-template-areas:
     "card-1 card-1 card-2 card-3"
     "card-4 card-5 card-5 card-3";
-
   &__card {
-    background: green;
+    padding: 2.3em;
+    border-radius: 10px;
+
+    > .profile-identity {
+      display: grid;
+      grid-template-areas: "img name" "img title";
+
+      width: fit-content;
+
+      > img {
+        grid-area: img;
+        width: 2.5em;
+        height: 2.5em;
+        margin-right: 1em;
+
+        border-radius: 50%;
+      }
+      > h3 {
+        grid-area: name;
+        font-size: $sz-x-sm;
+        align-self: center;
+      }
+      > h4 {
+        grid-area: title;
+        color: $clr-text-light;
+        font-size: $sz-x-sm;
+        align-self: center;
+      }
+    }
+    > .profile-review {
+      font-size: $sz-med;
+      font-weight: 600;
+      margin: auto 0;
+    }
+    > .profile-review-detail {
+      font-size: $sz-sm;
+      color: $clr-text-x-light;
+    }
   }
-  &__card-1 {
-    grid-area: card-1;
+  @for $i from 1 through 5 {
+    &__card-#{$i} {
+      grid-area: card-#{$i};
+      background: map-get($clr-cards, $i);
+      color: $clr-text;
+    }
   }
-  &__card-2 {
-    grid-area: card-2;
-  }
-  &__card-3 {
-    grid-area: card-3;
-  }
+  &__card-3,
   &__card-4 {
-    grid-area: card-4;
+    color: map-get($clr-cards, 5);
+    > .profile-identity {
+      > h4 {
+        color: hsla(217, 30%, 14%, 0.5);
+      }
+    }
+    > .profile-review-detail {
+      color: hsla(217, 30%, 14%, 0.7);
+    }
   }
-  &__card-4 {
-    grid-area: card-5;
+  @include breakpoint-down(medium) {
+    width: fit-content;
+    height: fit-content;
+    &__card > .profile-review {
+      margin: 1em 0;
+    }
+  }
+  @include breakpoint-down(small) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "card-1" "card-2" "card-3" "card-4" "card-5";
   }
 }

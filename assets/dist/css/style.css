@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
@@ -16,13 +17,30 @@ body {
   width: 100vw;
   min-height: 100vh;
   font-size: 13px;
+  font-weight: 500;
   background: #ecf2f8;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  padding: 2em;
 }
 
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.flex-r {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flex-c {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .flex-jc-c {
@@ -37,6 +55,12 @@ body {
           align-items: center;
 }
 
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .container {
   width: 70em;
   height: 36em;
@@ -46,12 +70,65 @@ body {
       grid-template-columns: repeat(4, 17.77fr);
   -ms-grid-rows: 31.33fr 29.55fr;
       grid-template-rows: 31.33fr 29.55fr;
-  grid-gap: 2em;
+  grid-gap: 1.25em;
       grid-template-areas: "card-1 card-1 card-2 card-3" "card-4 card-5 card-5 card-3";
 }
 
 .container__card {
-  background: green;
+  padding: 2.3em;
+  border-radius: 10px;
+}
+
+.container__card > .profile-identity {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "img name" "img title";
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.container__card > .profile-identity > img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: img;
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 1em;
+  border-radius: 50%;
+}
+
+.container__card > .profile-identity > h3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+  font-size: 0.7em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.container__card > .profile-identity > h4 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: title;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.container__card > .profile-review {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: auto 0;
+}
+
+.container__card > .profile-review-detail {
+  font-size: 0.8125em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .container__card-1 {
@@ -59,12 +136,16 @@ body {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: card-1;
+  background: #7541c8;
+  color: white;
 }
 
 .container__card-2 {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: card-2;
+  background: #48556a;
+  color: white;
 }
 
 .container__card-3 {
@@ -72,18 +153,60 @@ body {
   -ms-grid-row-span: 2;
   -ms-grid-column: 4;
   grid-area: card-3;
+  background: white;
+  color: white;
 }
 
 .container__card-4 {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: card-4;
+  background: white;
+  color: white;
 }
 
-.container__card-4 {
+.container__card-5 {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: card-5;
+  background: #19212e;
+  color: white;
+}
+
+.container__card-3, .container__card-4 {
+  color: #19212e;
+}
+
+.container__card-3 > .profile-identity > h4, .container__card-4 > .profile-identity > h4 {
+  color: rgba(25, 33, 46, 0.5);
+}
+
+.container__card-3 > .profile-review-detail, .container__card-4 > .profile-review-detail {
+  color: rgba(25, 33, 46, 0.7);
+}
+
+@media (max-width: 63.9375em) {
+  .container {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .container__card > .profile-review {
+    margin: 1em 0;
+  }
+}
+
+@media (max-width: 39.9375em) {
+  .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "card-1" "card-2" "card-3" "card-4" "card-5";
+  }
 }
 /*# sourceMappingURL=style.css.map */
