@@ -27,3 +27,9 @@ $font-family : 'Barlow Semi Condensed', sans-serif;
 $sz-med : 1.25em;
 $sz-sm : 0.8125em;
 $sz-x-sm : 0.7em;
+
+@include breakpoint-down(small) {
+    $sz-med : 1.5em;
+    $sz-sm : 1em;
+    $sz-x-sm : 0.875em;
+}
